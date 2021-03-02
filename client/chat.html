@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We-Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./src/index.js"></script>
+    <script src="./src/private-chat.js"></script>
+    <script src="./src/public-chat.js"></script>
+
+</head>
+
+<body>
+    <div id="flex">
+        <img id="pic" src="happy-pepole.jpg">
+        <div id=inbox>
+            <div id="text">
+                <h1>Welcome to We-Chat</h1>
+                <h2>We connect people</h2>
+            </div>
+            <div id="login-input">
+                <input type="text" id="username" required placeholder="Type Your Nickname">
+                <button id="move-page-buttom" type="submit"> Connect me</button>
+            </div>
+
+        </div>
+
+
+        <div id="title">
+            <h1>We-Chat</h1>
+            <div id="welcome-user"></div>
+        </div>
+
+
+        <div class="dropdown" style="float:right;">
+            <button class="dropbtn"><strong>Private Messages</strong>
+                <div class="dropbtn downArrow bounce">
+                    <img width="20" height="20" alt=""
+                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4=" />
+                </div>
+            </button>
+            <div class="dropdown-content">
+            </div>
+        </div>
+
+
+        <div id="content"></div>
+
+
+        <div id="div-id">
+            <input type="text" name="username" id="username" hidden>
+            <input type="text" name="m" id="m" required placeholder="Type your message...">
+            <a id="send-public-message" onclick="sendPublicMessage()" type="submit">SEND</a>
+        </div>
+
+        <div class="private-messages">
+
+        </div>
+        <div class="private-messages-set"></div>
+
+
+        <input type="text" name="reciver" id="username-reciver" hidden>
+        <input type="text" name="sender" id="sender" hidden>
+        <div id="you-got-new-message" style="display: none;">
+            <h1 id="sender-info"></h1>
+            <button id="open-message">Get Message</button>
+        </div>
+</body>
+
+</html>
