@@ -52,12 +52,11 @@
 
         <div id="div-id">
             <input type="text" name="username" id="username" hidden>
-            <input type="text" name="m" id="m" required placeholder="Type your message...">
-            <a id="send-public-message" onclick="sendPublicMessage()" type="submit">SEND</a>
+            <input type="text" name="m" id="m"  onkeypress="sendPublicMessageOnEnter()" required placeholder="Type your message...">
+            <a id="send-public-message" onclick="sendPublicMessageOnClick()"  type="submit">SEND</a>
         </div>
 
         <div class="private-messages">
-
         </div>
         <div class="private-messages-set"></div>
 

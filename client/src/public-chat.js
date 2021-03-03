@@ -3,22 +3,33 @@ function generateRandomColor() {
     return randomColor;
 }
 
+// send new message to the server on  click
+function sendPublicMessageOnClick() {
+    sendDataToServer();
+}
+// send new message to the server on  key press enter
+function sendPublicMessageOnEnter() {
+    $(`input`).keypress(function (event) {
+        let keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode === 13) {
+            sendDataToServer();
+        }
+        event.stopPropagation();
+    });
 
-// private: const sendPublicMessage = ...
-// public: document.sendPublicMessage = .... 
-function sendPublicMessage() {
+}
+
+const sendDataToServer = function () {
     const username = $("input[name='username']").val()
     const content = $("input[name='m']").val()
     $("#div-id #m").val('');
-    $("#send-public-message").click(function () {
-    })
+    if (content == '') return;
     $.ajax({
         url: "http://localhost:3000/send-message?username=" + username + "&m=" + content + "",
         context: document.body
     }).done(function () {
     })
 }
-
 
 var userColor = {};
 setInterval(function () {
@@ -51,3 +62,5 @@ setInterval(function () {
         }
     });
 }, 1000);
+
+

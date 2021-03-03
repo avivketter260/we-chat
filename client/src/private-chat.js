@@ -75,7 +75,7 @@ function newConverstionWindow(him) {
 }
 
 
-
+// This is component:
 const intervalId = function (me, him) {
     clearInterval(refreshMessages);
     // open new tab of converstion
@@ -83,16 +83,24 @@ const intervalId = function (me, him) {
 
     getPrivateMessages(me, him, renderConversations);
 
+    // TODO: rename to intervalHandle or intervalId
     refreshMessages = setInterval(function () {
         getPrivateMessages(me, him, renderConversations);
     }, 1000);
 
-    // send new message to the server 
+    // send new message to the server on  key press enter
+    $(`.private-message-info`).keypress(function (event) {
+        let keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode === 13) {
+            sendPrivateMessageToServer(me, him);
+        }
+
+        event.stopPropagation();
+    });
+
+    // send new message to the server on  click
     $(`.private-message-info .click-send`).click(function () {
-        const message = $(`input[name="message"]`).val();
-        $(".private-message-info .message1").val('');
-        stopHandlingMessagesFrom[me] = false;
-        sendPrivateMessage(me, him, message)
+        sendPrivateMessageToServer(me, him);
     });
 
     // close and remove the converstion div on click on X.
@@ -101,7 +109,6 @@ const intervalId = function (me, him) {
         $(`.private-messages .private-message1`).remove();
         $(`.head-line`).remove();
     });
-
 }
 
 // services:
@@ -130,4 +137,12 @@ const getPrivateMessages = function (user1, user2, cb) {
     }).done(function (conversations) {
         cb(conversations);
     })
+}
+
+
+const sendPrivateMessageToServer = function (me, him) {
+    const message = $(`input[name="message"]`).val();
+    $(".private-message-info .message1").val('');
+    stopHandlingMessagesFrom[me] = false;
+    sendPrivateMessage(me, him, message)
 }
